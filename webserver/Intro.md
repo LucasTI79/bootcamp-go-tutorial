@@ -1,16 +1,22 @@
-### Nomenclaturas
+# Nomenclaturas
 
-controller -> Responsável pelas validações dos dados que chegaram na aplicação
+**Controller/Handler** -> Responsável pelas validações dos dados que chegaram na aplicação
 
-service -> Responsável pela validação das regrás de negócio da aplicação
+**Service** -> Responsável pela validação das regrás de negócio da aplicação
 
-repository -> Responsável pela manipulação dos dados da aplicação 
+**Repository** -> Responsável pela manipulação dos dados da aplicação
+
+**Entity/Model/Domain** -> Cada que contém as estruturas da nossa aplicação
 
 ordem de chamada
 
-controler <-> service <-> repository
+# Fluxo da aplicação
 
-### Estrutura de pastas
+controller <-> service <-> repository 
+
+![Request](/assets/request.png "Request")
+
+# Estrutura de pastas (Pode variar)
 
 cmd
   server
@@ -25,5 +31,5 @@ internal
     service.go     -> service
 pkg
 
-go.mod
-go.sum
+go.mod -> arquivo que contém as dependências da nossa aplicação
+go.sum -> arquivo que registra as dependências que as dependências tem e suas versões

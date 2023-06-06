@@ -94,6 +94,12 @@ header := c.GetHeader("nome_header")
 
 **Middlewares**
 
+Fluxo de um middleware
+
+request <-> middleware <-> handler <-> middleware <-> response
+
+![Middleware](/assets/middleware.png "Middleware")
+
 Criando um middleware
 
 ```go
@@ -124,13 +130,27 @@ func TokenAuthMiddleware() gin.HandlerFunc {
 }
 ```
 
-Usando um middleware
+Usando um middleware a nível global (Todas as rotas abaixo vão ser impactadas)
 
 ```go
   func main(){
     server := gin.Default()
     server.Use(TokenAuthMiddleware)
     server.GET("/", func(c *gin.Context){
+      c.JSON(200, gin.H{
+        "message": "ok"
+      })
+    })
+    server.Run()
+  }
+```
+
+Usando um middleware a nível de rota (Apenas essa rota será impactada)
+
+```go
+  func main(){
+    server := gin.Default()
+    server.GET("/", TokenAuthMiddleware, func(c *gin.Context){
       c.JSON(200, gin.H{
         "message": "ok"
       })
