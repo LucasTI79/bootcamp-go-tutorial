@@ -47,7 +47,7 @@ func main(){
 
 **Documentando**
 
-<!-- consulte as docs da biblioteca: https://github.com/swaggo/swag -->
+OBS: consulte as docs da biblioteca para ver as configurações possíveis: https://github.com/swaggo/swag
 
 ```go
 package main
